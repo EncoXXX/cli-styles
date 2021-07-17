@@ -1,0 +1,22 @@
+{
+    "name": "enco/cli-styles",
+    "description": "Package to manage cli output styles (color, background, font style)",
+    "type": "package",
+    "version": "1.0.0",
+    "require": {
+        "php": "^7.2.0"
+    },
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Andrii Badnarskyi",
+            "email": "bednarsasha@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4":  {
+            "Enco\\": "src/"
+        }
+    }
+}
