@@ -14,7 +14,7 @@ Available styles:
 
 ### How to use:
 
-You can add different styles to different part of text. For example, you specify
+You can add different styles to different parts of text. For example, you specify
 two styles with names 'success' and 'error'. So your text
 must be like:
 ```html
@@ -25,7 +25,7 @@ Some text without styles
 Some text without styles
 ```
 
-<b>NOTE: </b> You can`t yse tags hierarchy. This text will be incorrect:
+<b>NOTE: </b> You can`t use tags hierarchy. This text will be incorrect:
 ```html
 Some text without styles
 <success>Text with success styles
@@ -55,7 +55,7 @@ public function setOverLine(bool $isOverline = true): Style;
 public function setBlink(bool $isBlink = true): Style;
 ```
 Also, you can specify default style, that applies to text without tags<br>
-To do this you just need to specify `\Enco\Style::DEFAULT_STYLE_NAME` constabt as name of style
+To do this you just need to specify `\Enco\Style::DEFAULT_STYLE_NAME` constant as name of style
 
 `\Enco\CliStyles` uses to apply styles to text<br>
 You must add styles, that you want to use
