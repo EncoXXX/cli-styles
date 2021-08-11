@@ -1,1 +1,4 @@
-.idea/*
+*
+!/src/*
+!composer.json
+!README.MD
