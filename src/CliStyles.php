@@ -86,10 +86,12 @@ class CliStyles
     /**
      * Applies styles to text
      *
+     * @param bool $resetStylesAfterResolve
+     *
      * @return string
      * @throws CliColorsException
      */
-    public function resolve(): string
+    public function resolve(bool $resetStylesAfterResolve = true): string
     {
         $text = $this->text;
         $styleResolver = new StyleResolver();
@@ -97,7 +99,8 @@ class CliStyles
         foreach ($this->styles as $style) {
             $text = $styleResolver->resolve($style, $this->defaultStyle, $text);
         }
+        $resetStylesCode = $resetStylesAfterResolve ? Style::RESET_STYLES_CODE : '';
 
-        return $text . Style::RESET_STYLES_CODE;
+        return $text . $resetStylesCode;
     }
 }
