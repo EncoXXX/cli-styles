@@ -53,6 +53,8 @@ public function setUnderline(bool $isUnderline = true): Style;
 public function setCrossLine(bool $isCrossLine = true): Style;
 public function setOverLine(bool $isOverline = true): Style;
 public function setBlink(bool $isBlink = true): Style;
+
+public static function formatLink(string $url, string $text): string;
 ```
 Also, you can specify default style, that applies to text without tags<br>
 To do this you just need to specify `\Enco\Style::DEFAULT_STYLE_NAME` constant as name of style
@@ -60,20 +62,22 @@ To do this you just need to specify `\Enco\Style::DEFAULT_STYLE_NAME` constant a
 `\Enco\CliStyles` uses to apply styles to text<br>
 You must add styles, that you want to use
 
-Available methods: 
+Available methods:
+
 ```php
-use Enco\CliStyles;
+use Enco\CliStylesPool;
 use Enco\Style;
 
-public function addStyle(Style $style): CliStyles;
-public function addText(string $text): CliStyles
+public function addStyle(Style $style): CliStylesPool;
+public function addText(string $text): CliStylesPool
 public function resolve(): string;
 public function __toString(): string; //Symlink to resolve() method
 ```
 
-You can use ``$cliStylesObject`` to echo text. Styles will be applied automatically. Example: 
+You can use ``$cliStylesObject`` to echo text. Styles will be applied automatically. Example:
+
 ```php
-$cliStylesObject = new \Enco\CliStyles();
+$cliStylesObject = new \Enco\CliStylesPool();
 ...
 echo $cliStylesObject;
 ```
@@ -88,8 +92,9 @@ This is example of <error></error> tags
 ```
 
 PHP code example:
+
 ```php
-use Enco\CliStyles;
+use Enco\CliStylesPool;
 use Enco\Style;
 
 $style = new Style();
@@ -115,7 +120,7 @@ This is simple text without styles\n
 <error>One more text with styles</error>\n
 ";
 
-$cliColors = new CliStyles();
+$cliColors = new CliStylesPool();
 $cliColors->setText($text)
     ->addStyle($style)
     ->addStyle($defaultStyle)

@@ -16,6 +16,10 @@ class Style
     const NAME_PATTERN = '/^[a-z0-9_-]+$/';
     const DEFAULT_STYLE_NAME = 'default'; //Use to stylize text without styles
     const RESET_STYLES_CODE = "\e[0m";
+    const LINK_START = "\e]8;;";
+    const LINK_DELIMITER = "\e\\";
+    const LINK_END = "\e]8;;\e\\";
+
 
     /**
      * @var string
@@ -78,6 +82,19 @@ class Style
         $this->color->setColor($color);
 
         return $this;
+    }
+
+    /**
+     * Format link for bash
+     *
+     * @param string $url
+     * @param string $text
+     *
+     * @return string
+     */
+    public static function formatLink(string $url, string $text): string
+    {
+        return self::LINK_START . $url . self::LINK_DELIMITER . $text . self::LINK_END;
     }
 
     /**

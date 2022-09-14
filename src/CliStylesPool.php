@@ -11,7 +11,7 @@ namespace Enco;
 /**
  * CLI colors
  */
-class CliStyles
+class CliStylesPool
 {
     /**
      * @var string
@@ -45,7 +45,7 @@ class CliStyles
      * @return $this
      * @throws CliColorsException
      */
-    public function addStyle(Style $style): CliStyles
+    public function addStyle(Style $style): CliStylesPool
     {
         if ($style->getName() == Style::DEFAULT_STYLE_NAME) {
             $this->defaultStyle = $style;
@@ -64,7 +64,7 @@ class CliStyles
      *
      * @return $this
      */
-    public function setText(string $text): CliStyles
+    public function setText(string $text): CliStylesPool
     {
         $this->text = $text;
 
